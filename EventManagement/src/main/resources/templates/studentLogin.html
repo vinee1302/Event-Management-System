@@ -1,0 +1,41 @@
+<body>
+<div th:replace="head::head"></div>
+<div>
+	<div class=class>
+		<div class="row">
+			<div class="col-md-4"></div>
+			<div class="col-md-4">
+				<div class="card p-3 mt-3">
+					<form th:action="@{/login}" method="post">
+						<div class="h3 text-center">Student</div>
+						<div class="mt-3">
+							<label>Email</label>
+							<input type="email" name="username" class="form-control"  placeholder="Enter  Email">
+						</div>
+						<div class="mt-3">
+							<label>Password</label>
+							<input type="password"   name="password" class="form-control" placeholder="Enter  Password" required>
+						</div>
+						<div class="mt-3">
+							<input type="submit" value="Login" class="btn btn-primary w-100" >
+						</div>
+						<div class="mt-2">
+							new student?register here
+							<a th:href="${'addStudent'}">StudentRegistration</a>
+						</div>
+				 	</form>
+				</div>
+			</div>
+			<div class="col-md-4"></div>
+		</div>
+	</div>	
+</div>
+</body>
+<style>
+	body{
+		background-image: url("https://media.istockphoto.com/id/1368954963/photo/cyber-security-in-two-step-verification-login-user-identification-information-security-and.webp?b=1&s=170667a&w=0&k=20&c=OWbOYeuJTJnKN0IIKOMEsq8qOhHweR9DQIg0EQHeeo0=");
+		background-repeat: no-repeat;
+		background-size:1400px;
+		background-position: 30%;
+	}
+</style>

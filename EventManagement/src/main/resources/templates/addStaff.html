@@ -1,0 +1,71 @@
+<body>
+	<div th:replace="ahead::ahead"></div>
+<div>
+	<div class="text">
+		<div class="row">
+			<div class="col-md-2"></div>
+			<div class="col-md-8">
+				<div class="card p-3 mt-4">
+					<form th:action="@{addStaff1}" th:object="${staffModel}" enctype="multipart/form-data" method="post">
+						<div class="h3 text-center text-black">Add New Staff</div>
+						<div class="row">
+						<div class="col-md-6 mt-3">
+							<label>Name</label>
+							<input type="text" id="name" th:field="*{name}" name="name"class="form-control"  placeholder="Enter  Name" required>
+						</div>
+						<div class="col-md-6 mt-3">
+							<label>Email</label>
+							<input type="email" id="email" th:field="*{email}" name="email"  class="form-control" placeholder="Enter  Email" required>
+						</div>
+						<div class="col-md-6 mt-3">
+							<label>Phone</label>
+							<input type="number" id="phone" th:field="*{phone}" name="phone" class="form-control" placeholder="Enter  Phone" required>
+						</div>
+						<div class="col-md-6 mt-3">
+							<label>Password</label>
+							<input type="password" id="password"th:field="*{password}" name="password" placeholder="Enter  Password" class="form-control" required>
+						</div>
+						 <div class="col-md-6 mt-3">
+                            <label for="address">Address</label>
+                            <textarea id="address"  th:field="*{address}" class="form-control" placeholder="Enter Address"></textarea>
+    				    </div>
+                        <div class="col-md-6 mt-5"> 
+                          <label for="gender"> Gender</label>
+                            <input type="radio" th:field="*{gender}" value= "male" id="gender1"><label for="gender">male</label>
+                            <input type="radio"  th:field="*{gender}" value="female" id="gender2"><label for="gender">female</label>
+                        </div>
+						<div class="col-md-6 mt-3">
+							<label>Department</label>
+							<select th:field="*{department}" class="form-control" required>
+								<option value="">Choose department</option>
+								<option value="cse">Cse</option>
+								<option value="ece">ece</option>
+								<option value="mech">mech</option>
+								<option value="civil">civil</option>
+							</select>
+						</div>
+						 <div class="col-md-6 mt-3"> 
+							<label for="profilePicture2">ProfilePicture</label> 
+							<input type="file" name="profilePicture2" id="profilePicture2" required>
+			         	</div>
+			         	<div class="col-md-4 mt-3"></div>
+						<div class="col-md-4 mt-3">
+							<input type="submit" value="Register" class="btn btn-primary w-100">
+						</div>	
+						</div>
+					</form>
+				</div>
+			</div>
+				<div class="col-md-5"></div>
+				<div class="col-md-3"></div>
+		</div>
+	</div>	
+</div>
+</body>
+<style>
+	.card{
+		background-image: url("data:image/jpeg;base64,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");
+		background-repeat: no-repeat;
+		background-size:100%;
+	}
+</style>

@@ -1,0 +1,61 @@
+<body>
+	<div th:replace="head::head"></div>
+<div>
+	<div class=class>
+		<div class="row">
+			<div class="col-md-6"></div>
+			<div class="col-md-6">
+				<div class="card p-3 mt-3">
+					<form th:action="@{addStudent1}" th:object="${studentModel}" enctype="multipart/form-data" method="post">
+						<div class="h3 text-center">New Student Register here</div>
+					<div class="row">
+						<div class=" col-md-6 mt-3">
+							<label>Name</label>
+							<input type="text" id="name" th:field="*{name}" class="form-control" placeholder="Enter  Name" required>
+						</div>
+						<div class=" col-md-6 mt-3">
+							<label>Email</label>
+							<input type="email" id="email" th:field="*{email}" class="form-control"  placeholder="Enter  Email" required>
+						</div>
+						<div class=" col-md-6 mt-3">
+							<label>Phone</label>
+							<input type="number" id="phone" th:field="*{phone}" class="form-control" placeholder="Enter  Phone" required>
+						</div>
+						<div class=" col-md-6 mt-3">
+							<label>Password</label>
+							<input type="password" id="password" th:field="*{password}" class="form-control" placeholder="Enter  Password" required>
+						</div>
+                        <div class=" col-md-6 mt-3"> 
+                            <label for="gender"> Gender</label>
+                            <input type="radio"  th:field="*{gender}" value= "male" id="gender1"><label for="gender">male</label>
+                            <input type="radio"  th:field="*{gender}" value="female" id="gender2"><label for="gender">female</label>
+                        </div>
+						 <div class=" col-md-6 mt-3">
+							<label for="profilePicture2">ProfilePicture</label>
+							<input type="file"name="profilePicture2" id="profilePicture2" required>
+			         	</div>
+						<div class=" col-md-6 mt-3">
+							<input type="submit" value="Register" class="btn btn-primary w-100">
+						</div>
+						<div class="col-md-6 mt-2"> 
+							already has account?Login here
+							<a href="${'addStudent'}">Student Login</a>
+						</div>
+					</div>
+					</form>
+				</div>
+			</div>
+	
+		</div>
+	</div>	
+</div>
+</body>
+<style>
+	body{
+		background-image: url("https://img.freepik.com/premium-photo/online-registration-form-modish-form-filling_31965-94515.jpg");
+		background-repeat: no-repeat;
+		background-size: 100%;
+		background-position: 30%;
+		background-position-y: 30%;
+	}
+</style>

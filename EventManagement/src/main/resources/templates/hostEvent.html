@@ -1,0 +1,71 @@
+<div th:if="${role}=='ROLE_ADMIN'">
+	<div th:replace="ahead::ahead"></div>
+</div>
+<div th:if="${role}=='ROLE_STAFF'">
+	<div th:replace="dhead::dhead"></div>
+</div>
+<div>
+	<div class="container-fluid">
+		<div class="row">
+			<div class="col-md-6"></div>
+			<div class="col-md-6">
+				<div class="card p-3 mt-3">
+					<form th:action="@{hostEvent1}" th:object="${eventModel}" enctype="multipart/form-data" method="post">
+						<div class="h3 text-center">Host Events</div>
+						<div class="row">
+						<div class=" col-md-6 mt-3">
+							<label>EventTitle</label>
+							<input type="text" id="eventTitle" th:field="*{eventTitle}" class="form-control" placeholder="Enter  EventTitle" required>
+						</div>
+						<div class="col-md-6 mt-3">
+							<label for="poster2">Poster</label>
+							<input type="file" name="poster2" id="poster2" required>
+			         	</div>
+						<div class=" col-md-6 mt-3">
+							<label>Registration Fee</label>
+							<input type="text" id="registrationFee" th:field="*{registrationFee}" class="form-control"  placeholder="Enter  RegistrationFee" required>
+						</div>
+						<div class="col-md-6 mt-3">
+							<label>Start Date</label>
+							<input type="datetime-local" id="startDate" th:field="*{startDate2}" class="form-control" required>
+						</div>
+						<div class="col-md-6 mt-3">
+							<label>Description</label>
+							<textarea id="description" th:field="*{description}" class="form-control" placeholder="Enter  description" required></textarea>
+						</div>
+						<div class="col-md-6 mt-3">
+							<label>Partispent Criteria</label>
+							<input type="text" id="partispentCriteria" th:field="*{partispentCriteria}" class="form-control" placeholder="Enter  partispentCriteria" required>
+						</div>
+						<div class="col-md-6 mt-3">
+							<label> Cost Per Person</label>
+							<input type="number" id="costPerPerson" th:field="*{costPerPerson}" class="form-control" placeholder="Enter cost Per Person" required>
+						</div>
+						<div class="col-md-6 mt-3">
+							<label>Event Type</label>
+							<select th:field="*{eventType}" class="form-control" required>
+								<option value="">Choose EventType</option>
+								<option value="Seminars">Seminars</option>
+								<option value="Technical">Technical</option>
+								<option value="Non-technical">Non-technical</option>
+								<option value="Workshop">Workshop</option>
+							</select>
+						</div>
+						<div class="col-md-6 mt-1">
+							<label>TotalSeats</label>
+							<input type="number" id="TotalSeats" th:field="*{totalSeats}" class="form-control" placeholder="Enter TotalSeats" required>
+						</div>
+						<div class="col-md-6 mt-4">
+							<input type="submit" value="add Event" class="btn btn-primary w-100">
+						</div>
+						</div>
+							
+						</div>
+						</div>
+						 </div>
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>	
+</div>

@@ -1,0 +1,89 @@
+<div th:replace="shead::shead"></div>
+<div class="container">
+   <div class="card p-3 mt-3">
+	 <form action="bookEvent1" method="get">
+		 <input type="hidden" name="eventRegistrationId" th:value="${eventRegistrationModel.eventRegistrationId}">
+		<div class="row">
+			<div class="col-md-3 mt-1">
+				<h4 class="text-center">EVENT DETAILS:</h4>
+				<label class="text-secondary">event Title:</label>
+				<div class="h6" th:text="${eventRegistrationModel['eventModel']['eventTitle']}"></div>
+			 </div>
+			 <div class="col-md-3 mt-5">
+				<label class="text-secondary">event Type:</label>
+				<div class="h6" th:text="${eventRegistrationModel['eventModel']['eventType']}"></div>
+			 </div>
+			 <div class="col-md-3 mt-5">
+				<label class="text-secondary">Student Name:</label>
+				<div class="h6" th:text="${eventRegistrationModel['studentModel']['name']}"></div>
+			 </div>
+			 <div class="col-md-3 mt-5">
+				<label class="text-secondary">Date:</label>
+				<div class="h6" th:text="${eventRegistrationModel['eventModel']['startDate']}"></div>
+			 </div>
+		</div>
+		<div class="row">
+			<div class="col-md-3">
+				<label class="text-secondary">number Of Tickets:</label>
+				<div class="h6" th:text="${eventRegistrationModel['numberOfTickets']}"></div>
+			</div>
+			<div class="col-md-3">
+				<label class="text-secondary">Total Amount:</label>
+				<div class="h6" th:text="${eventRegistrationModel['totalAmount']}"></div>
+			</div>
+			<div class="col-md-3">
+				<label class="text-secondary">Tax:</label>
+				<div  class="h6" th:text="${eventRegistrationModel['tax']}"></div>
+			</div>
+			<div class="col-md-3">
+				<label class="text-secondary">donations:</label>
+				<input type="number" name="donations" class="form-control h6">
+			</div>
+		</div>		
+	<div class="card p-3 mt-3">
+			<div class="h3 text-center">PAYMENT</div>
+		<div class="row mt-3">
+			<div class="col-md-2"></div>
+			<div class="col-md-4">
+				<label class="h6">Card-Type:</label>
+				<select class="form-control" required>
+					<option value="">Choose payment Card</option>
+					<option value="Credit Card">Credit Card</option>
+					<option value="Debit Card">Debit Card</option>
+				</select>
+			</div>
+			<div class="col-md-4">
+				<label class="h6">Name Of The Card:</label>
+				<input type="text" id="cardname" class="form-control" name="cardname" placeholder="Enter Name" required>
+			</div>
+			<div class="col-md-3"></div>
+			<div class="col-md-1"></div>
+		</div>
+		<div class="row mt-1">
+			<div class="col-md-2"></div>
+			<div class="col-md-4 mt-1">
+				<label class="h6">Card Number:</label>
+				<input type="number" id="cardnumber" name="cardnumber" class="form-control" placeholder="Enter Card Number" required>
+			</div>
+			<div class="col-md-4 mt-1">
+				<label class="h6">CVV:</label>
+				<input type="number" id="cvv" name="cvv" class="form-control" placeholder="Enter Cvv" required>
+			</div>
+			<div class="col-md-3"></div>
+			<div class="col-md-1"></div>
+		</div>
+		<div class="row">
+			<div class="col-md-2"></div>
+			<div class="col-md-4 mt-1">
+				<label class="h6">Expire Card</label>
+				<input type="number" id="expired" name="expired" class="form-control" placeholder="Enter Expire Date" required>
+			</div>
+			<div class="col-md-4 mt-4">
+				<input type="submit" value="Proceed To Book" class="btn btn-secondary w-100">
+			</div>
+			<div class="col-md-3"></div>
+			<div class="col-md-1"></div>
+		</div>
+	</form>
+	</div>
+</div>

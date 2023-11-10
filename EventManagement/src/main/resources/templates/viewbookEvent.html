@@ -1,0 +1,132 @@
+<div th:replace="shead::shead"></div>
+<div class="mt-3"th:each="eventRegistartionModel:${eventRegistrationList}">
+  <div class="card p-3 mt-1">
+	 <div class="row mt-2">
+		<div class="col-md-3">
+			<img th:src="@{'data:image/jpeg;base64,' + ${eventRegistartionModel['eventModel']['poster']}}" style="height:500px; max-width:100%;" alt="Image">
+	    </div>
+	    <div class="col-md-9">
+		    <fieldset class="border rounded-3 p-3">
+		    	<legend class="float-none w-auto px-3 h5" >Booking Details:</legend>
+		    	<div class="row">
+					<div class="col-md-6">
+						<label class="text-secondary">Number of Tickets:</label>
+						<div class="h6" th:text="${eventRegistartionModel.numberOfTickets}"></div>
+					</div>
+					<div class="col-md-3">
+						<label class="text-secondary">Total Amount:</label>
+						<div class="h6" th:text="${eventRegistartionModel.totalAmount}"></div>
+					</div>
+					<div class="col-md-3">
+						<label class="text-secondary">Tax:</label>
+						<div class="h6" th:text="${eventRegistartionModel.tax}"></div>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-md-6">
+						<label class="text-secondary">Donations:</label>
+						<div class="h6" th:text="${eventRegistartionModel.donations}"></div>
+					</div>
+					<div class="col-md-3">
+						<label class="text-secondary">Date:</label>
+						<div class="h6" th:text="${eventRegistartionModel.date}"></div>
+					</div>
+					<div class="col-md-3">
+						<label class="text-secondary">status:</label>
+						<div class="h6" th:text="${eventRegistartionModel.status}"></div>
+					</div>
+				</div>
+			</fieldset>
+		    <fieldset class="border rounded-3 p-3">
+		    	<legend class="float-none w-auto px-3 h5" >Student Details:</legend>
+		    	<div class="row">
+					<div class="col-md-6">
+						<label class="text-secondary"> Student Name:</label>
+						<div class="h6" th:text="${eventRegistartionModel['studentModel']['name']}"></div>
+					</div>
+					<div class="col-md-3">
+						<label class="text-secondary"> Student Email:</label>
+						<div class="h6" th:text="${eventRegistartionModel['studentModel']['email']}"></div>
+					</div>
+					<div class="col-md-3">
+						<label class="text-secondary">Phone:</label>
+						<div class="h6" th:text="${eventRegistartionModel['studentModel']['phone']}"></div>
+					</div>
+				</div>
+			</fieldset>
+				<div th:if="${eventRegistartionModel.eventModel.staffModel}!=null">
+				    <fieldset class="border rounded-3 p-3">
+			    	<legend class="float-none w-auto px-3 h5" >Department Details:</legend>
+					<div class="row">
+						<div class="col-md-4">
+							<label class="text-secondary">Hosted By:</label>
+							<div class="h6" th:text="${eventRegistartionModel.eventModel.staffModel['name']}"></div>
+						</div>
+						<div class="col-md-4">
+							<label class="text-secondary">Hosted By Email:</label>
+							<div class="h6" th:text="${eventRegistartionModel.eventModel.staffModel['email']}"></div>
+						</div>
+						<div class="col-md-4">
+							<label class="text-secondary">Hosted By Department:</label>
+							<div class="h6" th:text="${eventRegistartionModel.eventModel.staffModel['department']}"></div>
+						</div>
+					</div>
+					</fieldset>
+					    <fieldset class="border rounded-3 p-3">
+		    	<legend class="float-none w-auto px-3 h5" >Event Details:</legend>
+		    	<div class="row">
+					<div class="col-md-6">
+						<label class="text-secondary">EventTitle:</label>
+						<div class="h6" th:text="${eventRegistartionModel['eventModel']['eventTitle']}"></div>
+					</div>
+					<div class="col-md-3">
+						<label class="text-secondary">RegistrationFee:</label>
+						<div class="h6" th:text="${eventRegistartionModel['eventModel']['registrationFee']}"></div>
+					</div>
+					<div class="col-md-3">
+						<label class="text-secondary">Start Date:</label>
+						<div class="h6" th:text="${eventRegistartionModel['eventModel']['startDate']}"></div>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-md-6">
+						<label class="text-secondary">Cost Per Person:</label>
+						<div class="h6" th:text="${eventRegistartionModel['eventModel']['costPerPerson']}"></div>
+					</div>
+					<div class="col-md-3">
+						<label class="text-secondary">EventType:</label>
+						<div class="h6" th:text="${eventRegistartionModel['eventModel']['eventType']}"></div>
+					</div>
+					<div class="col-md-3">
+						<label class="text-secondary">TotalSeats:</label>
+						<div class="h6" th:text="${eventRegistartionModel['eventModel']['totalSeats']}"></div>
+					</div>
+					</div>					
+						<div class="row">
+						<div class="col-md-4"></div>
+						<div class="col-md-4">
+							<form th:action="@{'review'}" method="get">
+							   <div th:if="${eventRegistartionModel.status}=='Booked'">
+									<input type="hidden" name="eventRegistrationId" th:value="${eventRegistartionModel.eventRegistrationId}">
+							 		<input type="submit" value="Rivew&Rating" class="btn btn-success w-100">
+							 	</div>
+						 	</form>
+						</div> 
+						<div class="col-md-4">
+						<form th:action="@{'cancelTickets'}" method="get">
+							<div th:if="${eventRegistartionModel.status}=='Booked'">
+								<input type="hidden" name="eventRegistrationId" th:value="${eventRegistartionModel.eventRegistrationId}">
+								<input type="submit" value="Cancel" class="btn btn-danger w-100">
+							</div>
+						</form>
+						</div>
+						</div>
+					</div>
+				</div>
+				</fieldset>
+				</div>
+				</div>
+				</div>
+			</div>
+		</div>
+	</div>
